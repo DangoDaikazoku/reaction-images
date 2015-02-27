@@ -1,0 +1,26 @@
+{
+   "name": "reaction-images",
+   "version": "1.0",
+   "manifest_version": 2,
+   "description": "insert reaction images everywhere",
+   "icons": {
+     "128": "images/128.png"
+   },
+   "options_page": "options.html",
+   "permissions": [
+    "http://*/*",
+    "https://*/*"
+   ],
+   "content_scripts": [{
+       "matches": ["http://*/*", "https://*/*"],
+       "js": ["scripts/jquery-2.1.3.min.js", "content_frame.js"],
+       "run_at" : "document_idle",
+       "all_frames": true
+   }],
+   "background": { "scripts": ["scripts/jquery-2.1.3.min.js","background.js"] },
+   "browser_action": {
+      "default_icon": "images/128.png",
+      "default_title": "Reaction images",
+	  "default_popup": "popout.html"
+   }
+}

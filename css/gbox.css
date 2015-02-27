@@ -1,0 +1,107 @@
+/* Gbox styles */
+.gbox {
+  margin: 0;
+  min-width: 100px;
+}
+
+.gbox-border {
+  border-style: solid;
+  border-width: 0 1px
+}
+
+.gbox .b1,
+.gbox .b2,
+.gbox .b3 {
+  display: block;
+  height: 1px;
+  font-size: 1px;
+  line-height: 1px;
+  border-style: solid;
+  border-width: 0;
+}
+
+.gbox .b1 {
+  margin: 0 3px;
+}
+.gbox .b2 {
+  margin: 0 2px;
+  border-width: 0 1px
+}
+.gbox .b3 {
+  margin: 0 1px;
+  border-width: 0 1px;
+}
+.gbox .gbox-border,
+.gbox .b2,
+.gbox .b3 {
+  background: #fff; border-color: #ccc
+}
+
+.gbox .b1 {
+  background: #ccc
+}
+
+
+.gbox-primary .gbox-border,
+.gbox-primary .b2,
+.gbox-primary .b3,
+.gbox-secondary .gbox-border,
+.gbox-secondary .b2,
+.gbox-secondary .b3 {
+  background: #fff; border-color: #ccc
+}
+
+.gbox-primary .b1,
+.gbox-secondary .b1 {
+  background: #ccc
+}
+
+.gbox-tertiary .gbox-border,
+.gbox-tertiary .b2,
+.gbox-tertiary .b3,
+.gbox-tertiary .b1 {
+  background: #E3FFDD; border-color: #E3FFDD
+}
+
+.gbox-tertiary .b1 {
+  background: #E3FFDD
+}
+
+.gbox-quaternary .gbox-border,
+.gbox-quaternary .b2,
+.gbox-quaternary .b3,
+.gbox-quaternary .b1 {
+  background: #FFF2A4; border-color: #FFF2A4
+}
+
+.gbox-quaternary .b1 {
+  background: #FFF2A4
+}
+
+.gbox-top,
+.gbox-bottom {
+  background: transparent; /* #e8e9ef; */
+}
+
+.gbox-content {
+  padding-left: 13px;
+}
+
+.gbox-selected {
+  border-left: 12px solid #EACE3F;
+}
+
+.gbox-selected .gbox-border {
+  border-width: 0 1px 0 0;
+}
+
+.gbox-selected .b1,
+.gbox-selected .b2,
+.gbox-selected .b3 {
+  border-left-width: 0;
+  margin-left: 0;
+}
+
+.gbox-selected .gbox-content {
+  padding-left: 2px;
+}

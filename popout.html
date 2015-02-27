@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8">
+<script type="text/javascript" src="scripts/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="popout.js"></script>
+<style type="text/css">
+
+#title{
+	width: 100%;
+	text-align: center;
+}
+
+body{
+	background-color: #f8f8f8;
+	margin: 0px;
+}
+.box{
+	margin: 5px 3px 5px 0px;
+	background: #f7f6f2;
+	padding: 10px;
+	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.10);
+}
+
+.menu-entry {
+	padding: 3px 4px 3px 8px;
+	cursor: pointer;
+	line-height: 20px;
+}
+
+.menu-entry:hover{
+	background-color: rgb(218, 218, 218);
+	line-height: 30px;
+	font-weight: bold;
+}
+
+.stat-label{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+}
+
+#t_url, #p_url{
+	font-weight: bold;
+	color: red;
+}
+
+.separator {
+	width: 100%;
+	border-top: 2px groove white;
+	margin: 5px -5px 5px -3px;
+}
+
+</style>
+</head>
+
+<body style="width:225px;">
+
+<div class="container">
+	<div id="title"><h2>DFP bot</h2></div>
+	<div id="block_counts" class="box" style="display: block;">
+	    <span style="font-weight: bold; line-height: 25px;">Bot Stats :</span>
+	    <div class="bot-stats"><span class="stat-label">Bot status : </span><span id="t_url">running</span></div>  
+	    <div class="bot-stats"><span class="stat-label">Total URIs : </span><span id="t_url">20</span></div>  
+	    <div class="bot-stats"><span class="stat-label">processed URIs : </span><span id="p_url">15</span></div>  
+	</div>
+	<div class="menu-entry" id="start-bot">Start DFP bot</div>
+	<div class="menu-entry" id="start-bot">Pause DFP bot</div>
+	<div class="menu-entry" id="url-list-link">Add/Remove URIs</div>
+	<div class="menu-entry" id="results-link">Show results</div>
+	<div class="menu-entry" id="share-link" style="color:blue">Share us :)</div>
+	<div id="separator3" class="separator" style="display: block;"></div>
+
+</div>
+
+</body>
+</html>

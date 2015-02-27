@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8">
+
+<style type="text/css">
+.pull_right{
+	float: right;
+}
+.clear-button{
+	color: blue;
+	cursor:pointer;
+}
+.url-div{
+	margin: 5px;
+	font-size: 14px;
+}
+</style>
+<title>dfp bot</title>
+
+<script type="text/javascript" src="scripts/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.csv-0.71.min.js"></script>
+<script type="text/javascript" src="scripts/angular.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="URLcontroller" ng-csp ngCloak ng-app="DFPbot" ng-controller="urlController as show">
+
+	<input type="text" id="uriInput" style="width:600px;">
+
+	<div class="url-div" ng-repeat="url in show.url_list track by $index">{{url}}<span class="pull_right clear-button" ng-click="deleteURL($index)">[x]</span></div>
+
+	<div id="open-url-button"><input type="button" ng-click="runBot()" value="run bot" style="float:left"></div>
+	
+	<div id="web-button"><input type="button" ng-click="openPage()" value="import csv"></div>
+
+	<input type="file" name="File Upload" id="txtFileUpload" accept=".csv" />
+
+	<div id="import-button"><input type="button" ng-click="importCSV($event)" value="upload csv"></div>
+
+	<output id="list"></output>
+
+</div>
+
+
+
+<script type="text/javascript" src="url_list_controller.js"></script>
+
+</body>
+</html>

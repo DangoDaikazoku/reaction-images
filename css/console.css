@@ -1,0 +1,415 @@
+#container{
+  margin-top: 10px;
+}
+#options{
+  background: rgb(246, 252, 163);
+  padding: 5px;
+}
+#options span{
+  margin-left: 200px !important;
+  cursor: pointer;
+  color: #666;
+}
+#google_pubconsole_gwrapper{
+  overflow: auto;
+}
+
+#tabs{
+  height: 20px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e5e5e5;
+  width: 100%;
+  padding: 10px;
+}
+
+#tabs span{
+  margin-left: 350px;
+  padding: 5px;
+  cursor: pointer;
+  color: #666;
+}
+
+#tabs span:hover{
+  color: #222;
+}
+
+#tabs span.active{
+  border-bottom: 4px solid #3b7bea;
+  color: #3b7bea;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fff;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  overflow: hidden;
+}
+
+a:link {
+  color: #15c;
+  font-family: Arial;
+  font-size: 13px;
+  text-decoration: none;
+}
+a:visited {
+  color: #61c;
+}
+a:active {
+  color: #DD4B39;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  margin: 0;
+  padding: 0 0 1em;
+}
+
+
+#google_pubconsole_close {
+  padding-top: 8px;
+}
+
+#google_pubconsole_reload_div {
+  display: inline-block;
+}
+
+/**************************** g-doc Structure ****************************/
+/* g-tpl-250-alt g-unit */
+.g-tpl-250-alt .g-unit,
+.g-unit .g-tpl-250-alt .g-unit,
+.g-unit .g-unit .g-tpl-250-alt .g-unit,
+.g-unit .g-unit .g-unit .g-tpl-250-alt .g-unit {
+  display: block;
+  margin: 0 0 0 0;
+  width: auto;
+  height: 100%;
+  float: none;
+  overflow: auto;
+}
+
+.g-wrapper {
+  position: absolute;
+  top: 80px; /* Needs to be the header height */
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.g-border {
+  /*height: 100%;*/
+}
+
+.g-doc {
+  height: 100%;
+}
+
+.g-section.g-tpl-250-alt {
+  height: 100%;
+}
+
+.close {
+  position: relative;
+  float: right;
+  right: 6px;
+  margin-top: 5px;
+  cursor: pointer;
+  z-index: 9;
+}
+#google_pubconsole_reload{
+  display: none;
+}
+.close span {
+  vertical-align: top;
+  color: #FFFFFF;
+}
+
+.g-wrapper {
+  background-color: #fff;
+  padding: 6px;
+  /*border-bottom: 1px solid #ccc*/
+}
+.g-border {
+  background-color: #fff;
+}
+.g-content {
+  padding: 5px;
+}
+.content-divs {
+  position: relative;
+}
+
+/**************************** Headers ****************************/
+h1,
+.pub-h1 { /* pub-h1 */
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+}
+
+.primary {
+  font-weight: bold;
+}
+.secondary {
+  color: #888;
+  font-weight: normal;
+}
+
+h1 div,
+.pub-h1 div {
+  display: inline;
+}
+
+h2,
+.pub-h2 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #4D90FE;
+}
+
+.no-text-decoration {
+  text-decoration: none;
+}
+
+h5 {
+  font-size: 13px;
+  margin: 0;
+  padding: 0 0 0.1em; /* was 0 0 0.2em in AW css - reduced it to make things fit - also makes content look more coherent, actually*/
+}
+
+.inline-details {
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.inline-details.first {
+  margin-left: 0px;
+}
+
+.gbox {
+  margin-bottom: 10px;
+}
+
+.gbox-body {
+  padding: 5px;
+}
+
+.gbox-body-short{
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.big {
+  font-size: 13px;
+}
+.small {
+  font-size: 12px;
+}
+
+/**************************** Sortable Tables *****************************/
+.sortable_table {
+  border-collapse: collapse;
+  border: 1px solid #e6e6e6;
+  font-size: 13px;
+  font-weight: normal;
+  clear: both;
+}
+
+.sortable_table thead {
+  background-color: #E6E6E6;
+  cursor: pointer;
+}
+
+.sortable_table tfoot {
+  background-color: #DCDCDC;
+}
+
+.sortable_table td, th {
+  border: 1px solid #e6e6e6;
+  padding: 10px;
+}
+
+.sortable_table td {
+  text-align: left;
+  white-space: nowrap;
+  position: relative;
+}
+
+.sortable_table th {
+  font-size: 11px;
+  color: #333333;
+  background-color: #f6f6f6;
+  font-weight: bold;
+  white-space: nowrap;
+  position: relative;
+}
+
+th.goog-tablesorter-sorted {
+  background-color: #E6E6E6;
+  border: 1px solid #CCCCCC;
+  border-left: 2px;
+  -webkit-box-shadow: inset 1px 1px 6px 2px rgba(204, 204, 204, 0.5);
+  box-shadow: inset 1px 1px 6px 2px rgba(204, 204, 204, 0.5);
+}
+
+th.goog-tablesorter-sorted-reverse {
+  background-color: #E6E6E6;
+  border: 1px solid #CCCCCC;
+  border-left: 2px;
+  -webkit-box-shadow: inset 1px 1px 6px 2px rgba(204, 204, 204, 0.5);
+  box-shadow: inset 1px 1px 6px 2px rgba(204, 204, 204, 0.5);
+}
+
+/**************************** Loading *****************************/
+.cover {
+  position:fixed;
+  z-index:99;
+  left:0px;
+  top:0px;
+  width:100%;
+  height:100%;
+  background:white;
+}
+
+/******************************* Login Box ********************************/
+#google_pubconsole_tagging_report_div {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.tagging-report-text {
+  margin-left: 5px;
+}
+
+/********************************* Trace **********************************/
+.trace-load-times {
+  line-height: 110%;
+}
+
+/********************************* About *********************************/
+.about {
+  background-color: #fff;
+  font-size: 13px;
+  padding: 7px;
+}
+
+.icon {
+  float: left; /*isn't there a better way that uses the normal flow?*/
+  font-size: 0.85em;
+  height: 120px;
+  margin: 0.3em 1.5em 0 1em; /*these feel like hacks - I'd like to 'center' components with auto margins! */
+  text-align: center;
+}
+
+.icon p {
+  margin: 0;
+  padding: .5em 0 0.5em;
+}
+
+.icon img {
+  height: 80px;
+  width: 80px;
+}
+
+.fine-print {
+  font-size: .75em; /* is this too small? */
+}
+
+div.card {
+  border: 1px #e6e6e6 solid;
+  width: 500px;
+  overflow: hidden;
+}
+
+.card .header {
+  background-color: #e6e6e6;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.card .body {
+  color: #000;
+}
+
+.card .key {
+  margin-right: 5px;
+}
+
+.card .body div {
+  padding: 5px;
+}
+
+.float-right {
+  float: right;
+  color: #888;
+  margin-right: 0.5em;
+}
+
+.url-title{
+  padding:40px;
+  background: rgb(244, 241, 221);
+  margin: 40px;
+}
+
+.ad-button {
+  display: inline-block;
+  white-space: nowrap;
+  background: #f5f5f5 -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: #444;
+  font-family: arial, helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  height: 29px;
+  line-height: 27px;
+  margin: 0;
+  min-width: 54px;
+  outline: none;
+  padding: 0 8px;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-transition: all .218s;
+  -webkit-user-select: none;
+  margin-top: 3px;
+  margin-right: 3px;
+}
+
+.status-icon {
+  vertical-align: middle;
+}
+
+.scorecard {
+  padding: 15px 10px;
+  border: 1px solid #E6E6E6;
+  width: 190px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  background: #fff;
+  font-family: "Arial", "Helvetica", sans-serif;
+  color: #222;
+  font-size: 13px;
+  position: relative;
+  display: block;
+  clear: both;
+}

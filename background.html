@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript">
+	  var fbURL = "http://www.facebook.com/";
+      var facebook = "http://www.facebook.com/help.php"; //used instead of home page to avoid awkward ajax
+      var pollInterval = 1000 * 10;  // 15 seconds
+      var requestTimeout = 1000 * 7;  // 10 seconds
+      var notificationCount;
+      var img_notLoggedInSrc = "not_logged_in";
+      var img_noNewSrc = "no-new";
+      var img_newSrc = "new";
+      var iconSet = "set1";
+      var iconFormat = ".gif";
+	  var xhr;
+      var iconState;
+	  var failCount = 2;
+	  var chatflag=new Array();
+      var notificationText = "";
+      var notificationCountChanged = false;
+	  var flagarr=[];
+      var frame = null; 
+	  
+	
+	
+				  
+	////////////////////////// set icon ////////////////////////////
+	  
+      function setIcon(rath) {
+        rath = "icons/" + iconSet + "/" + rath + iconFormat;
+        var img = new Image();
+        img.src = rath;
+		img.onload = function(){
+			chrome.browserAction.setIcon({path : rath});
+			}
+    } 
+
+						///////////////////
+
+
+
+    function base() {
+		
+	    if(xhr != null)	{
+			xhr.onreadystatechange = null;
+			xhr = null;
+        }
+        xhr = new XMLHttpRequest();
+        var abortTimerId = window.setTimeout(function() {
+          xhr.abort();
+          window.setTimeout(base, pollInterval);
+        }, requestTimeout);
+
+        function handleSuccess(count) {
+          window.clearTimeout(abortTimerId);
+          updateNotificationCount(count);
+          window.setTimeout(base, pollInterval);
+		  
+        }
+
+        function handleError() {
+		  failCount = failCount + 1;
+		  console.log("Failed, failcount is now " + failCount);
+		  if (failCount > 2) {
+			  setIcon(img_notLoggedInSrc);
+			  chrome.browserAction.setBadgeBackgroundColor({color:[190, 190, 190, 255]});
+			  chrome.browserAction.setBadgeText({text:"X"});
+			  chrome.browserAction.setTitle({title:"Not logged in"});
+			  window.clearTimeout(abortTimerId);
+			  iconState = 3;
+			  failCount = 0;
+			  console.log("Swapped icon for fail. Reset failCount to 0");
+		  }
+		   window.setTimeout(base, pollInterval);
+        }
+
+        try
+        {
+          xhr.onreadystatechange = function()
+          {
+            if (xhr.readyState == 4 )
+            {
+              var start = xhr.responseText.indexOf('<span class="jewelCount"><span>');
+			  var strings=xhr.responseText;
+			  var result=[];
+			  var i=0;
+			  var names=[];
+			  var strng;
+			  
+			if(xhr.status==200)
+				{	
+					var patt=/\\"name\\":\\"([a-z]|\s|\p{Latin})+/gi;
+					var patty=/\\"name\\":\\"/;
+					var result=null;
+					var list=[];
+					var k=0,j=0;
+					
+					
+					while(result=patt.exec(strings))
+					{
+					
+							list[i]=result[0].replace (patty, "");
+							i++;
+						
+					}
+					
+					}
+					var strng1=JSON.stringify(list);
+					localStorage["list"]=strng1;	
+					
+					
+					 if(localStorage["chatstalk"])
+						{
+							strng=localStorage["chatstalk"];
+							names=JSON.parse(strng);
+						}
+					else {
+						flagarr=[];
+						
+					}
+														
+					while(names[k]){
+						
+						while(list[j]){
+							if(names[k].toLowerCase()==list[j].toLowerCase())
+								{		
+									  localflag=1;
+									  if(flagarr[k]!=1)
+									  {
+									  alert(names[k]+" is online now ");
+									  flagarr[k]=1;
+									  
+									  }
+									  
+								}
+							 	
+							j++;
+							}
+							if(flagarr[k]==1&&localflag==0)
+							 		{
+										flagarr[k]=0;
+									}
+									
+							k++;
+							localflag=0;
+							j=0;
+						}
+					
+					
+              console.log("ResponseText position is " + start)
+              if(start > 0)
+              {
+                var end = xhr.responseText.indexOf('</span>', start);
+                var notifications = xhr.responseText.substring(start,end);
+
+                var count = notifications.replace (/[^\d]/g, "");
+             	if(count == "")
+                  count = 0;
+              handleSuccess(count);
+              }
+              else
+              {
+                handleError();
+              }
+			  xhr.onreadystatechange = null;
+               xhr = null;
+            }
+          }
+		  delete start;
+		  delete end;
+		  delete notifications;
+		  delete aman;
+        }
+        catch(e)
+        {
+          console.log(e);
+          handleError();
+        }
+
+        xhr.open("GET",facebook,true);
+        xhr.send(null);
+      }
+
+      function getdigits (s) {
+      //   return s.replace (/[^\d]/g, "");
+      }
+	  
+function updateNotificationCount(count) {
+  failCount = 0;
+  if(notificationCount != count || iconState == 3)
+  {
+	  console.log("Notifications have changed, resolving..")
+	  if (count == 0) { 
+			  console.log("none found");
+			  setIcon(img_noNewSrc);            
+			  chrome.browserAction.setBadgeBackgroundColor({color:[255, 0, 0, 255]});
+			  chrome.browserAction.setTitle({title:"No new notifications"});
+			  chrome.browserAction.setBadgeText({text:""});
+			  iconState = 0;
+		  } else {
+			  setIcon(img_newSrc);
+			  notificationCount = count;
+			  console.log(count +" notifications ")
+			  chrome.browserAction.setBadgeBackgroundColor({color:[243, 20, 100, 255]});
+			  chrome.browserAction.setTitle({title:notificationCount+" notification"});
+			  chrome.browserAction.setBadgeText({text:notificationCount});
+			  iconState = 2;
+		  }
+		  notificationCount = count;
+		  
+  }
+}
+	  
+</script>
+<title></title>
+</head>
+<body onload="base()">
+</body>
+</html>
